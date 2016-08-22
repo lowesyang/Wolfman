@@ -20,9 +20,10 @@
 ###如何运行
 * 线上: [传送门](http://tx.zhelishi.cn:2000)
 * 本地:
-  1. git pull.
-  2. npm install.
-  3. node server.js
-  4. node backend/socket/chat.js (新进程)
-  5. node backend/socket/gamectrl.js (新进程)
+  1. git pull
+  2. npm install
+  3. webpack -p
+  4. node server.js
+  5. node backend/socket/chat.js (新进程)
+  6. node backend/socket/gamectrl.js (新进程)
   

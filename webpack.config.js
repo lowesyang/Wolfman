@@ -1,0 +1,37 @@
+var webpack=require("webpack");
+module.exports={
+    entry:[
+        './frontend/index',
+        //'webpack/hot/only-dev-server'
+    ],
+    output:{
+        path:'./',
+        filename:'bundle.js'
+    },
+    module:{
+        loaders:[
+            {
+                test:/\.jsx?$/,
+                loader:'babel',
+                exclude:/node_modules/,
+                query:{
+                    presets:['es2015','react','stage-0']
+                }
+            },
+            {
+                test:/\.css$/,
+                loader:"style-loader!css-loader"
+            },
+            {
+                test:/\.(png|jpg|svg|gif|eot|woff|ttf)$/,
+                loader:'url-loader?limit=8192'
+            }
+        ]
+    },
+    resolve:{
+        extensions:['','.js','.jsx']
+    },
+    plugins:[
+        new webpack.NoErrorsPlugin(),
+    ]
+}

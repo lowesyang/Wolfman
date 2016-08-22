@@ -1,0 +1,40 @@
+{
+  "name": "react_practice",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "crypto": "0.0.3",
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "mysql": "^2.11.1",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {
+    "jsx-loader": "^0.13.2",
+    "css-loader": "^0.23.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "style-loader": "^0.13.1",
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "material-design-icons": "^2.2.3",
+    "material-ui": "^0.15.3",
+    "react-addons": "^0.9.0",
+    "react-router": "^2.6.1",
+    "react-tap-event-plugin": "^1.0.0",
+    "url-loader": "^0.5.7",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  },
+  "scripts": {
+    "start": "webpack-dev-server --hot --progress --colors"
+  },
+  "author": "",
+  "license": "MIT"
+}
