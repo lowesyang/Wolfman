@@ -18,7 +18,7 @@
 5. 狼人游戏进程控制系统 (未完成)
 
 ###如何运行
-* 线上: [传送门](http://tx.zhelishi.cn:2000)
+* 线上: [传送门](https://tx.zhelishi.cn:2016)
 * 本地:
   1. git pull
   2. npm install
