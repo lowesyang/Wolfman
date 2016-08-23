@@ -18,7 +18,7 @@ for(var i=0;i<rooms.length;i++){
         gameSetting:{},
         gameProcess:{},
         isAutoSet:true,   //是否自动配置，默认为是
-        gamerList:new Array(18)    //用于记录座位与对应的玩家名称
+        gamerList:new Array(18)    //用于记录座位与对应的玩家信息
     }
 }
 
@@ -158,7 +158,7 @@ ws.on('connection',function(conn){
     });
 
     conn.on('close',function(){
-        if(conn.userInfo) {
+        if(conn.userInfo && !rooms[conn.roomID].gameStart) {
             var gamerList = rooms[conn.userInfo.roomID].gamerList;
             var userList = rooms[conn.userInfo.roomID].userList;
             gamerList[conn.userInfo.seatID] = null;

@@ -168,10 +168,9 @@ class Room extends React.Component{
                     isSeated:false
                 }
             }
-            this.state.seatsInfo[newNum]={
-                sitter:userInfo.userName,
-                isSeated:true
-            };
+            this.state.seatsInfo[newNum].sitter=userInfo.userName;
+            this.state.seatsInfo[newNum].isSeated=true;
+
             userInfo.seatID=newNum+1;
             LS.setItem("userInfo",userInfo);
             this.setState({
@@ -216,18 +215,15 @@ class Room extends React.Component{
             midHeight:btmConTop-midConTop-15
         })
     };
-    updateSeatsInfo=(newList)=>{        //更新座位信息
+    updateSeatsInfo=(newList)=>{        //(开始游戏前)更新座位信息
         for(var i=0;i<newList.length;i++){
             if(newList[i] && newList[i]!=""){
                 this.state.seatsInfo[i].isSeated=true;
                 this.state.seatsInfo[i].sitter=newList[i];
             }
             else{
-                this.state.seatsInfo[i]={
-                    isSeated:false,
-                    sitter:null,
-                    isSpeak:false
-                }
+                this.state.seatsInfo[i].isSeated=false;
+                this.state.seatsInfo[i].sitter=null;
             }
         }
         this.setState({
