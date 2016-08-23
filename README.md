@@ -26,4 +26,5 @@
   4. node server.js
   5. node backend/socket/chat.js (新进程)
   6. node backend/socket/gamectrl.js (新进程)
-  
+* 测试账号: 账号admin，密码admin
+
