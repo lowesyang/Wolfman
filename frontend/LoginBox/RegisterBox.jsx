@@ -111,7 +111,7 @@ class RegisterBox extends React.Component{
     }
     render(){
         let styles= {
-            card:{
+            con:{
                 position:"absolute",
                 width: 400,
                 height:370,
@@ -120,6 +120,10 @@ class RegisterBox extends React.Component{
                 top:0,
                 bottom:0,
                 margin:"auto"
+            },
+            card:{
+                position:"relative",
+                zIndex:2
             },
             form:{
                 width: "65%",
@@ -133,55 +137,70 @@ class RegisterBox extends React.Component{
             },
             circle:{
                 display: this.state.isLoading ? "block" : "none"
+            },
+            witchImg:{
+                position:"absolute",
+                width:365,
+                top:-185,
+                left:0,
+                right:0,
+                margin:"auto",
+                borderRadius:20
             }
         };
         return(
-            <Card style={styles.card}>
-                <form style={styles.form}>
-                    <CardTitle title="注册~"/>
-                    <TextField
-                        floatingLabelText="用户名"
-                        onChange={this.getUserName}
-                        onKeyDown={this.goRegister}
-                    /><br/>
-                    <TextField
-                        floatingLabelText="密码"
-                        type="password"
-                        onChange={this.getPsword}
-                        onKeyDown={this.goRegister}
-                    /><br/>
-                    <TextField
-                        floatingLabelText="确认密码"
-                        type="password"
-                        onChange={this.getCfPsword}
-                        onKeyDown={this.goRegister}
-                    /><br/>
-                    <FlatButton
-                        className="fr"
-                        label="注册"
-                        primary={true}
-                        style={styles.btn}
-                        onClick={this.goRegister}
-                    />
-                    <FlatButton
-                        className="fr"
-                        label="前往登录"
-                        style={styles.btn}
-                        href="#/login"
-                    />
-                    <CircularProgress
-                        className="fr"
-                        size={0.5}
-                        style={styles.circle}/>
-                    <div className="cl"></div>
-                </form>
-                <SnackBar
-                    open={this.state.open}
-                    message={this.state.warning}
-                    autoHideDuration={4000}
-                    onRequestClose={this.warningClose}
+            <div style={styles.con}>
+                <img
+                    src="/frontend/LoginBox/static/witch.jpg"
+                    style={styles.witchImg}
                 />
-            </Card>
+                <Card style={styles.card}>
+                    <form style={styles.form}>
+                        <CardTitle title="注册~"/>
+                        <TextField
+                            floatingLabelText="用户名"
+                            onChange={this.getUserName}
+                            onKeyDown={this.goRegister}
+                        /><br/>
+                        <TextField
+                            floatingLabelText="密码"
+                            type="password"
+                            onChange={this.getPsword}
+                            onKeyDown={this.goRegister}
+                        /><br/>
+                        <TextField
+                            floatingLabelText="确认密码"
+                            type="password"
+                            onChange={this.getCfPsword}
+                            onKeyDown={this.goRegister}
+                        /><br/>
+                        <FlatButton
+                            className="fr"
+                            label="注册"
+                            primary={true}
+                            style={styles.btn}
+                            onClick={this.goRegister}
+                        />
+                        <FlatButton
+                            className="fr"
+                            label="前往登录"
+                            style={styles.btn}
+                            href="#/login"
+                        />
+                        <CircularProgress
+                            className="fr"
+                            size={0.5}
+                            style={styles.circle}/>
+                        <div className="cl"></div>
+                    </form>
+                    <SnackBar
+                        open={this.state.open}
+                        message={this.state.warning}
+                        autoHideDuration={4000}
+                        onRequestClose={this.warningClose}
+                    />
+                </Card>
+            </div>
         )
     }
 }

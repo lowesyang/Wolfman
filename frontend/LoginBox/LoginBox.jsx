@@ -87,7 +87,7 @@ class LoginBox extends React.Component{
     }
     render(){
         let styles= {
-            card:{
+            con:{
                 position:"absolute",
                 width: 400,
                 height:300,
@@ -95,7 +95,11 @@ class LoginBox extends React.Component{
                 right:0,
                 top:0,
                 bottom:0,
-                margin:"auto"
+                margin:"auto",
+            },
+            card:{
+                position:"relative",
+                zIndex:2
             },
             form:{
                 width: "65%",
@@ -109,49 +113,63 @@ class LoginBox extends React.Component{
             },
             circle:{
                 display: this.state.isLoading ? "block" : "none"
+            },
+            wolfImg:{
+                position:"absolute",
+                top:-220,
+                left:0,
+                right:0,
+                margin:"auto",
+                zIndex:0
             }
         };
         return(
-            <Card style={styles.card}>
-                <form style={styles.form}>
-                    <CardTitle title="狼人杀，请登录~"/>
-                    <TextField
-                        floatingLabelText="用户名"
-                        onChange={this.getUserName}
-                        onKeyDown={this.goLogin}
-                    /><br/>
-                    <TextField
-                        floatingLabelText="密码"
-                        type="password"
-                        onChange={this.getPsword}
-                        onKeyDown={this.goLogin}
-                    /><br/>
-                    <FlatButton
-                        className="fr"
-                        label="登录"
-                        primary={true}
-                        style={styles.btn}
-                        onClick={this.goLogin}
-                    />
-                    <FlatButton
-                        className="fr"
-                        label="前往注册"
-                        style={styles.btn}
-                        href="#/register"
-                    />
-                    <CircularProgress
-                        className="fr"
-                        size={0.5}
-                        style={styles.circle}/>
-                    <div className="cl"></div>
-                </form>
-                <SnackBar
-                    open={this.state.open}
-                    message={this.state.warning}
-                    autoHideDuration={4000}
-                    onRequestClose={this.warningClose}
+            <div style={styles.con}>
+                <img
+                    src="/frontend/LoginBox/static/wolf.png"
+                    style={styles.wolfImg}
                 />
-            </Card>
+                <Card style={styles.card}>
+                    <form style={styles.form}>
+                        <CardTitle title="登录"/>
+                        <TextField
+                            floatingLabelText="用户名"
+                            onChange={this.getUserName}
+                            onKeyDown={this.goLogin}
+                        /><br/>
+                        <TextField
+                            floatingLabelText="密码"
+                            type="password"
+                            onChange={this.getPsword}
+                            onKeyDown={this.goLogin}
+                        /><br/>
+                        <FlatButton
+                            className="fr"
+                            label="登录"
+                            primary={true}
+                            style={styles.btn}
+                            onClick={this.goLogin}
+                        />
+                        <FlatButton
+                            className="fr"
+                            label="前往注册"
+                            style={styles.btn}
+                            href="#/register"
+                        />
+                        <CircularProgress
+                            className="fr"
+                            size={0.5}
+                            style={styles.circle}/>
+                        <div className="cl"></div>
+                    </form>
+                    <SnackBar
+                        open={this.state.open}
+                        message={this.state.warning}
+                        autoHideDuration={4000}
+                        onRequestClose={this.warningClose}
+                    />
+                </Card>
+            </div>
         )
     }
 }
