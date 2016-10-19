@@ -41,7 +41,7 @@ class Home extends React.Component{
         ws:null
     };
     socketInit=()=>{
-        let ws=new WebSocket("wss://127.0.0.1:9504");
+        let ws=new WebSocket("wss://tx.zhelishi.cn:9504");
         ws.onopen=()=>{
             ws.send(JSON.stringify({
                 type:"roomList",

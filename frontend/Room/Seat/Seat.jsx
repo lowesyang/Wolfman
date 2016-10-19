@@ -1,7 +1,5 @@
 import React from "react";
 import {Card} from "material-ui/Card";
-import {ListItem} from "material-ui/List";
-import Paper from "material-ui/Paper";
 import MicIcon from "material-ui/svg-icons/av/mic";
 
 class Seat extends React.Component{

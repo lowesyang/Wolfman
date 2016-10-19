@@ -83,7 +83,7 @@ class Room extends React.Component{
                 msg:"玩家被杀害"
             }
         ],
-        gameWs:new WebSocket("wss://127.0.0.1:9504"), //游戏控制websocket,
+        gameWs:new WebSocket("wss://tx.zhelishi.cn:9504"), //游戏控制websocket,
         recorder:null,
         isKeyDown:false,
         speakingID:-1,
@@ -119,6 +119,8 @@ class Room extends React.Component{
         return name;
     };
     startGame=()=>{     //game start!
+        let seatId=LS.getItem("userInfo").seatID;
+        if(!seatId) return this.alertWarning("您还未就座!");
         let ws=this.state.gameWs;
         ws.send(JSON.stringify({
             type:"gameStart",
@@ -150,7 +152,7 @@ class Room extends React.Component{
         })
     };
     sitDown=(newNum)=>{         //坐下
-        if(this.state.isStart) return this.alertWarning("游戏一开始，不能更换座位!")
+        if(this.state.isStart) return this.alertWarning("游戏一开始，不能更换座位!");
         newNum--;
         let userInfo=LS.getItem("userInfo");
         let oldNum=-1;

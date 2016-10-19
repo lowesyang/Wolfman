@@ -25,7 +25,7 @@ class PublicBox extends React.Component{
         message:"",
         timeLimit:3000,
         sendTime:0,
-        ws:new WebSocket("wss://127.0.0.1:9503"),
+        ws:new WebSocket("wss://tx.zhelishi.cn:9503"),
         audioSource1:null,
         audioSource2:null,
         interval:null
